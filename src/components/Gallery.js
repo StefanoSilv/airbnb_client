@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import '../styles/gallery.css';
 
 class Gallery extends Component {
 	state = {
