@@ -5,6 +5,11 @@ import Nav from './Nav.js';
 import Gallery from './Gallery.js';
 import Review from './Review';
 
+// CSS
+import '../styles/cards.css';
+import '../styles/grid.css';
+import '../styles/users.css';
+
 class House extends React.Component {
 	state = {
 		house: {
