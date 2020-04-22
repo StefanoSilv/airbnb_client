@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import '../styles/review.css';
 
 export default class Review extends Component {
 	render() {
