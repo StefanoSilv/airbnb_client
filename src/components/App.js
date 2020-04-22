@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-// import Houses from './Houses';
-// import House from './House';
-// import Plus from './Plus';
+import Houses from './Houses';
+import House from './House';
+import Plus from './Plus';
 
 class App extends React.Component {
 	render() {
