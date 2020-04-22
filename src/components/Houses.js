@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import GoogleMap from 'google-map-react';
 import '../styles/cards.css';
 import '../styles/grid.css';
+import '../styles/maps.css';
 import Thumbnail from './Thumbnail.js';
 import Pin from './Pin.js';
 import Nav from './Nav.js';
