@@ -21,7 +21,7 @@ class Houses extends React.Component {
 		},
 		map: {
 			key: {
-				key: 'AIzaSyAfKoJ2voMFhv6emhtXmaf7Em2VDYv5e_Q'
+				key: `${process.env.REACT_APP_GOOGLE_API_KEY}`
 			},
 			center: {
 				lat: -8.652,

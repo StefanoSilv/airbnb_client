@@ -6,11 +6,16 @@ class Gallery extends Component {
 		images: [],
 		mainImage: ''
 	};
-	componentWillReceiveProps(props) {
-		if (props.images !== this.props.images) {
-			if (typeof props.images !== 'undefined') {
-				this.setState({ images: props.images, mainImage: props.images[0] });
-			}
+
+	componentDidUpdate(props) {
+		if (
+			typeof props.images !== 'undefined' &&
+			props.images != this.props.images
+		) {
+			this.setState({
+				images: this.props.images,
+				mainImage: this.props.images[0]
+			});
 		}
 	}
 	selectImage = idx => {
