@@ -6,19 +6,24 @@ class Pin extends React.Component {
 		lat: this.props.lat,
 		lng: this.props.lng
 	};
-	componentWillMount() {
+	componentDidMount() {
 		this.setState({
 			house: this.props.house,
 			lat: this.props.lat,
 			lng: this.props.lng
 		});
 	}
-	componentWillReceiveProps(props) {
-		this.setState({
-			house: this.props.house,
-			lat: this.props.lat,
-			lng: this.props.lng
-		});
+	componentDidUpdate(props) {
+		if (
+			props.house !== this.props.house &&
+			props.lat !== this.props.lat &&
+			props.lng !== this.props.lng
+		)
+			this.setState({
+				house: this.props.house,
+				lat: this.props.lat,
+				lng: this.props.lng
+			});
 	}
 	render() {
 		return (

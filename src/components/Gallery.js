@@ -7,8 +7,10 @@ class Gallery extends Component {
 		mainImage: ''
 	};
 	componentWillReceiveProps(props) {
-		if (typeof props.images !== 'undefined') {
-			this.setState({ images: props.images, mainImage: props.images[0] });
+		if (props.images !== this.props.images) {
+			if (typeof props.images !== 'undefined') {
+				this.setState({ images: props.images, mainImage: props.images[0] });
+			}
 		}
 	}
 	selectImage = idx => {

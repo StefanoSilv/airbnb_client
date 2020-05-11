@@ -26,7 +26,7 @@ class House extends React.Component {
 		},
 		reviews: []
 	};
-	componentWillMount() {
+	componentDidMount() {
 		axios
 			.get(`${process.env.REACT_APP_API}/houses/${this.props.match.params.id}`)
 			.then(res => {
@@ -139,7 +139,7 @@ class House extends React.Component {
 											<select>
 												{[...Array(this.state.house.guests)].map((e, idx) => (
 													<option
-														selected={idx + 1 === this.state.house.guests}
+														value={idx + 1 === this.state.house.guests}
 														key={idx}
 													>
 														{idx + 1} guests

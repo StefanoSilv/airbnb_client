@@ -7,7 +7,7 @@ class Favorites extends React.Component {
 	state = {
 		houses: []
 	};
-	componentWillMount() {
+	componentDidMount() {
 		axios
 			.get(`${process.env.REACT_APP_API}/houses?plus=true`)
 			.then(res => {
@@ -17,6 +17,18 @@ class Favorites extends React.Component {
 				console.log(err);
 			});
 	}
+	onHouseEffect = (id, over) => {
+		let houses = this.state.houses;
+		if (over) {
+			houses.find(e => e._id === id).selected = true;
+		} else {
+			houses.map(e => {
+				e.selected = false;
+				return e;
+			});
+		}
+		this.setState({ houses });
+	};
 	render() {
 		return (
 			<>
@@ -26,10 +38,9 @@ class Favorites extends React.Component {
 						{// List of thumbnails
 						this.state.houses.map((house, idx) => (
 							<Thumbnail
+								key={house._id}
 								house={house}
-								key={idx}
-								onHouseOver={() => {}}
-								onHouseLeave={() => {}}
+								onHouseEffect={this.onHouseEffect}
 							></Thumbnail>
 						))}
 					</div>

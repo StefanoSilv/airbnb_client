@@ -1,6 +1,5 @@
 import React from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
 import GoogleMap from 'google-map-react';
 import '../styles/cards.css';
 import '../styles/grid.css';
@@ -22,7 +21,7 @@ class Houses extends React.Component {
 		},
 		map: {
 			key: {
-				key: 'AIzaSyBKMVj4gaJLU9GTV1zOaWQj7ggKVbXQep0'
+				key: 'AIzaSyAfKoJ2voMFhv6emhtXmaf7Em2VDYv5e_Q'
 			},
 			center: {
 				lat: -8.652,
@@ -71,17 +70,17 @@ class Houses extends React.Component {
 				e => e.bedrooms >= this.state.filters.bedrooms
 			);
 		}
-		if (this.state.filters.type != 'all') {
+		if (this.state.filters.type !== 'all') {
 			filteredHouses = filteredHouses.filter(
-				e => e.type.name == this.state.filters.type
+				e => e.type.name === this.state.filters.type
 			);
 		}
-		if (this.state.filters.price != '') {
+		if (this.state.filters.price !== '') {
 			filteredHouses = filteredHouses.filter(
 				x => Number(x.price) <= Number(this.state.filters.price)
 			);
 		}
-		if (this.state.filters.search != '') {
+		if (this.state.filters.search !== '') {
 			let searchedTerm = this.state.filters.search.toLowerCase();
 			filteredHouses = filteredHouses.filter(
 				e =>
@@ -90,10 +89,10 @@ class Houses extends React.Component {
 					e.region.toLowerCase().includes(searchedTerm)
 			);
 		}
-		if (this.state.filters.sorting == 'sortPrice') {
+		if (this.state.filters.sorting === 'sortPrice') {
 			filteredHouses = filteredHouses.sort((a, b) => a.price - b.price);
 		}
-		if (this.state.filters.sorting == 'sortRating') {
+		if (this.state.filters.sorting === 'sortRating') {
 			filteredHouses = filteredHouses.sort((a, b) => b.rating - a.rating);
 		}
 		this.setState({ filteredHouses });
@@ -132,7 +131,7 @@ class Houses extends React.Component {
 							</option>
 						))}
 					</select>
-					<label for="price">
+					<label htmlFor="price">
 						{this.state.filters.price.toString().padStart(3, '0')} $
 					</label>
 					<input
